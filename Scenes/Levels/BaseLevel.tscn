@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/PlatformTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/KinematicBody2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/GameState.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/GUI.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Sounds.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Portal.tscn" type="PackedScene" id=6]
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 387.681, 694.497 )
+
+[node name="GUI" parent="Player/Camera2D" index="1"]
+script = ExtResource( 4 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( 458780, 3, 0, 458796, 3, 0, 720932, 3, 0, 786482, 3, 0, 851985, 2, 0, 983100, 3, 0, 1048605, 3, 0, 1048619, 3, 0, 1245189, 2, 0, 1572925, 3, 0, 1638423, 3, 0, 1703965, 3, 0, 1835021, 2, 0, 1835063, 3, 0, 1900579, 2, 0, 2097199, 2, 0 )
+
+[node name="Sounds" parent="." instance=ExtResource( 5 )]
+
+[node name="SpikeMen" type="Node2D" parent="."]
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="JumpPads" type="Node2D" parent="."]
+
+[node name="FlyingMen" type="Node2D" parent="."]
+
+[node name="Clouds" type="Node2D" parent="."]
+
+[node name="Portal" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4380.09, 1272.19 )
+
+[connection signal="body_entered" from="Portal" to="." method="_on_Portal_body_entered"]
+
+[editable path="Player"]

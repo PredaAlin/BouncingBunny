@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=2]
+
+[node name="LevelFinished" instance=ExtResource( 2 )]
+
+[node name="Label" parent="CenterContainer" index="0"]
+margin_left = 282.0
+margin_right = 1637.0
+text = "Level Finished"
+
+[node name="Label" parent="TextureButton" index="0"]
+text = "Select Level"
